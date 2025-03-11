@@ -1,0 +1,669 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Run JavaScript</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f8ff; /* Light blue background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50; /* Darker blue */
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content {
+            width: 80%;
+            text-align: left;
+        }
+
+        ol {
+            color: #34495e; /* Grayish-blue */
+            font-size: 20px;
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        ul {
+            padding-left: 40px;
+            list-style-type: disc;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to JavaScript</h1>
+    <div class="content">
+        <ol>
+            <li>
+                <strong>Call Stack, Memory, and Code Execution:</strong>
+                JavaScript uses a single-threaded call stack to execute code. 
+                The memory heap stores variables and objects, while the call stack processes functions in a Last-In-First-Out (LIFO) manner. 
+                When a function is called, it’s pushed onto the stack and removed once completed.
+            </li>
+            <li>
+                <strong>Global Execution Context:</strong>
+                When JavaScript code is run, the engine creates a Global Execution Context. 
+                This context has two phases: the creation phase (variables and functions are set up in memory) and the execution phase (code is executed line by line).
+            </li>
+            <li>
+                <strong>Variable Hoisting:</strong>
+                In JavaScript, variable declarations are moved (or "hoisted") to the top of their scope during the creation phase. 
+                However, variables declared using <code>var</code> are initialized with <code>undefined</code>, while <code>let</code> and <code>const</code> are not initialized until execution.
+            </li>
+            <li>
+                <strong>Function Hoisting:</strong>
+                Function declarations are hoisted along with their definitions, meaning they can be called before they are defined in the code. 
+                However, function expressions assigned to variables are hoisted without their assigned values.
+            </li>
+            <li>
+                <strong>Hoisting with <code>let</code> and <code>const</code>:</strong>
+                Variables declared with <code>let</code> and <code>const</code> are hoisted but placed in a temporal dead zone. 
+                They cannot be accessed before the declaration line, ensuring safer variable usage compared to <code>var</code>.
+            </li>
+            <li>
+                <strong>Array Methods:</strong>
+                <ul>
+                    <li><code>forEach</code>: Executes a provided function once for each array element.</li>
+                    <li><code>map</code>: Creates a new array by applying a function to each element.</li>
+                    <li><code>filter</code>: Creates a new array with elements that pass a test.</li>
+                    <li><code>some</code>: Checks if at least one element satisfies a condition.</li>
+                    <li><code>every</code>: Checks if all elements satisfy a condition.</li>
+                    <li><code>find</code>: Returns the first element that satisfies a condition.</li>
+                    <li><code>findIndex</code>: Returns the index of the first element that satisfies a condition.</li>
+                    <li><code>includes</code>: Checks if an array includes a specific value.</li>
+                    <li><code>indexOf</code>: Returns the first index of a specified value.</li>
+                    <li><code>lastIndexOf</code>: Returns the last index of a specified value.</li>
+                    <li><code>concat</code>: Merges two or more arrays into one.</li>
+                    <li><code>slice</code>: Returns a shallow copy of a portion of an array.</li>
+                    <li><code>splice</code>: Adds or removes elements from an array at a specific index.</li>
+                    <li><code>sort</code>: Sorts an array in place.</li>
+                    <li><code>reverse</code>: Reverses the order of elements in an array.</li>
+                    <li><code>join</code>: Combines all array elements into a string.</li>
+                    <li><code>flat</code>: Flattens nested arrays into a single array.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Functions:</strong>
+                Functions are essential for structuring JavaScript programs, allowing for modular, maintainable, and reusable code.
+                They handle tasks by taking inputs, performing operations, and returning outputs.
+                <ul>
+                    <li>
+                        <strong>Array Functions:</strong>
+                        Array methods are preferred for their readability, conciseness, and ease of use, making code simpler and easier to maintain.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Objects:</strong>
+                Object is a collection of key-value pairs. Each key (or property) is a string, and the value can be any data type, including other objects or functions. 
+                Objects are used to represent structured data and can contain properties, methods (functions), and even nested objects
+            </li>
+            <li>
+                <strong>This method:</strong>
+                The this method in JavaScript is not a built-in method, but rather a special keyword. 
+                It is used to refer to the context in which the function or method is being executed. The value of this changes based on how the function is called
+            </li>
+            <li>
+                <strong>For in and For of loop :</strong>
+                For of is used in arrays majorly and for in is used in obejcts majorly.
+            </li>
+            <li>
+                <strong>Classes:</strong>
+                A class is a blueprint and object is what you made form that blueprint.
+            </li>
+            <li>
+                <strong>Constructor:</strong>
+                A speacial method for assigning properties.Automatically called when creating an object.
+            </li>
+            <li>
+                <strong>Inheritance:</strong>
+                Allows one class (child class) to inherit properties and methods from another class (parent class). 
+                This helps create a hierarchy of classes where the child class can access the functionality of the parent class and add or override its own functionality.
+            </li>
+            <li>
+                <strong>Prototypes:</strong>
+                Prototypes are a mechanism that allows objects to inherit properties and methods from other objects. 
+                Every JavaScript object has an internal property called [[Prototype]], which links to another object called its prototype.
+            </li>
+            <li>
+                <strong>Clousure:</strong>
+                A closure in JavaScript is a function that "remembers" the variables from its outer scope even after the outer function has finished executing.
+                <ul> <strong>Why Use Closures?</strong>
+                    <li>Encapsulation: Keep variables private.</li>
+                    <li>Data Persistence: Maintain state across function calls.</li>
+                    <li>Function Factories: Create dynamic functions with different behaviors.</li>
+                </ul>
+
+               
+            </li>
+            <li>
+                <strong>Currying:</strong>
+                Currying is a functional programming technique in JavaScript where a function with multiple arguments is transformed into a sequence of functions, 
+                each taking a single argument.
+            </li>
+            <li>
+                <strong>Call,Apply and Bind:</strong>
+                <ul>
+                    <li>Call:takes a function from one object and allows it to be used with another object.</li>
+                    <li>Apply:Works just like call(), but arguments are passed as an array.</li>
+                    <li>Bind:bind() binds an object to a function and returns a new copy of that function.
+                        The new function remembers the this value from the object it was bound to.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Lexical Environment:</strong>
+                Local memeory +Lexical environment of the parent.
+                lexical environment refers to the context in which a piece of code is evaluated and executed, specifically determining how variables and functions are stored and accessed. 
+                It can be thought of as a structure that holds variable declarations, function declarations, and the scope in which they are defined.
+            </li>
+            <li>
+                <strong>Block:</strong>
+                Use of multiple statements in a single space where JavaScript expects only one statement.
+                <ul>
+                    <li><strong>Block Scoped </strong> all functions and variables we can access in the block , let and const are block scoped.</li>
+                </ul>
+            </li>
+            <li><strong>Shadowing:</strong>shadowing happens when a variable in a local scope (e.g., inside a function or block) has the same name as a variable in an outer scope. 
+                This "shadows" the outer variable, meaning the inner variable takes precedence within its scope.
+                <ul>
+                    <li>let does not respect block scope.</li>
+                    <li>You cannot shadow a let with var that is illegal shadowning.</li>
+                    <li>You can shadow a var with let.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Callback function:</strong>
+                A callback function in JavaScript is a function that is passed as an argument to another function and is executed later, 
+                usually after an asynchronous operation completes or an event occurs.
+            </li>
+            <li>
+                <strong>Event Loop:</strong>
+                The event loop manages asynchronous operations in JavaScript.<br>
+                It ensures non-blocking execution by checking the call stack and executing tasks from different queues.
+                <ul>Execution order:
+                    <li>Runs all synchronous code in the call stack.</li>
+                    <li>Executes all microtasks (Promises, MutationObservers).</li>
+                    <li>Processes macrotasks (setTimeout, I/O operations, etc.).</li>
+                    <li>Repeats the cycle.</li>
+                </ul>
+
+            </li>
+            <li>
+                <strong>Callback Queue (Macrotask Queue):</strong>
+                Stores low-priority asynchronous tasks, including:
+                <ul>
+                    <li>SetTimeout, setInterval
+                    <li>setImmediate (Node.js)</li>
+                    <li>I/O operations (e.g., file reading, network requests)</li>
+                    <li>UI rendering tasks</li>
+                Macrotasks run only after all microtasks are completed.</ul>
+                
+            </li>
+
+            <li>
+                <strong>Microtask Queue</strong>
+                <ul>
+                    Stores high-priority asynchronous tasks, including:
+                    <li>Promise callbacks (.then, .catch, .finally)</li>
+                    <li>MutationObserver callbacks</li>
+                    <li>process.nextTick (Node.js)</li>
+
+                </ul>
+                Microtasks always execute before macrotasks in the same event loop cycle.
+            </li>
+            <li>
+                <strong>Promises & MutationObserver in the Microtask Queue:</strong>
+                <ul>
+                    <li>Promises: When resolved/rejected, .then() or .catch() moves to the microtask queue.</li>
+                    <li>MutationObserver: Detects DOM changes and executes its callback as a microtask.</li>
+                    <li>Since microtasks run first, Promises and MutationObservers execute before any setTimeout or I/O operations. </li>
+                                 
+                </ul>
+            </li>
+            <li>
+                <strong>Memoization:</strong>
+                Memoization is an optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again. 
+                This helps improve performance by avoiding redundant calculations.
+                <ul>
+                    How It Works
+                    <li>A function is wrapped inside another function that maintains a cache (usually an object or a Map).</li>
+                    <li>Before executing the function, it checks if the result is already stored in the cache.</li>
+                    <li>If found, it returns the cached result instead of re-executing the function.</li>
+                    <li>If not found, the function runs, stores the result in the cache, and then returns the output.</li>
+                    
+                </ul>
+            </li>
+        </ol>
+    </div>
+    <script src="test.js"></script>
+</body>
+</html>
+
+ 
+
+
+  -->
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Run JavaScript</title>
+      <!-- Example of adding a custom Google Font -->
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+      <style>
+          /* Global Settings */
+          * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+          }
+  
+          body {
+              font-family: Arial, sans-serif;
+              /* Vibrant gradient background */
+              background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              min-height: 100vh;
+              padding: 20px;
+          }
+  
+          /* Main Container */
+          .content-container {
+              background-color: #ffffff;
+              border-radius: 10px;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              width: 90%;
+              max-width: 1000px;
+              padding: 30px;
+              margin-top: 20px;
+          }
+  
+          h1 {
+              color: #2c3e50;
+              font-size: 3rem;
+              margin-bottom: 10px;
+              text-align: center;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+          }
+  
+          /* Subtle decorative line under the heading */
+          h1::after {
+              content: "";
+              display: block;
+              width: 80px;
+              height: 3px;
+              background-color: #2c3e50;
+              margin: 10px auto 0 auto;
+              border-radius: 3px;
+          }
+  
+          .content {
+              margin-top: 20px;
+              color: #333;
+              line-height: 1.6;
+              font-size: 1.1rem;
+          }
+  
+          ol {
+              list-style: decimal; /* Remove default numbering for custom icons/emojis */
+              margin-left: 20px;
+          }
+  
+          /* Increase margin to add spacing between each definition */
+          li {
+              margin-bottom: 30px; 
+              position: relative;
+              padding-left: 5px;
+          }
+  
+          li strong {
+              color: #2c3e50;
+          }
+  
+          code {
+              background-color: #f2f2f2;
+              padding: 2px 4px;
+              border-radius: 4px;
+              font-size: 0.95em;
+          }
+  
+          /* Code blocks for samples */
+          pre {
+              background-color: #f8f8f8;
+              padding: 15px;
+              border-radius: 6px;
+              overflow-x: auto;
+              margin: 10px 0;
+              border: 1px solid #e0e0e0;
+          }
+  
+          /* Styling the table for Array Methods */
+          table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-bottom: 20px;
+              margin-top: 10px;
+          }
+  
+          table, th, td {
+              border: 1px solid #ddd;
+          }
+  
+          th, td {
+              text-align: left;
+              padding: 10px;
+          }
+  
+          th {
+              background-color: #f3f3f3;
+          }
+  
+          /* Responsive design adjustments */
+          @media (max-width: 600px) {
+              .content-container {
+                  padding: 20px;
+              }
+          }
+      </style>
+  </head>
+  <body>
+      <h1>Welcome to JavaScript</h1>
+      <div class="content-container">
+          <div class="content">
+              <ol>
+                  <li>
+                      <strong>💡 Call Stack, Memory, and Code Execution:</strong>
+                      JavaScript uses a single-threaded call stack to execute code. 
+                      The memory heap stores variables and objects, while the call stack processes functions in a Last-In-First-Out (LIFO) manner. 
+                      When a function is called, it’s pushed onto the stack and removed once completed.
+                  </li>
+                  <li>
+                      <strong>🌎 Global Execution Context:</strong>
+                      When JavaScript code is run, the engine creates a Global Execution Context. 
+                      This context has two phases: the creation phase (variables and functions are set up in memory) 
+                      and the execution phase (code is executed line by line).
+                  </li>
+                  <li>
+                      <strong>🪄 Variable Hoisting:</strong>
+                      In JavaScript, variable declarations are moved (or "hoisted") to the top of their scope during the creation phase. 
+                      However, variables declared using <code>var</code> are initialized with <code>undefined</code>, 
+                      while <code>let</code> and <code>const</code> are not initialized until execution.
+                      <br><br>
+                      <em>Sample Code for Hoisting:</em>
+                      <pre><code>// Example of var hoisting
+  console.log(hoistedVar); // undefined
+  var hoistedVar = "I am hoisted!";
+  
+  // Example of let hoisting
+  // console.log(hoistedLet); // ReferenceError: Cannot access 'hoistedLet' before initialization
+  let hoistedLet = "I am not hoisted in the same way!";
+                      </code></pre>
+                  </li>
+                  <li>
+                      <strong>🔁 Function Hoisting:</strong>
+                      Function declarations are hoisted along with their definitions, meaning they can be called before they are defined in the code. 
+                      However, function expressions assigned to variables are hoisted without their assigned values.
+                  </li>
+                  <li>
+                      <strong>🏗️ Hoisting with <code>let</code> and <code>const</code>:</strong>
+                      Variables declared with <code>let</code> and <code>const</code> are hoisted but placed in a temporal dead zone. 
+                      They cannot be accessed before the declaration line, ensuring safer variable usage compared to <code>var</code>.
+                  </li>
+                  <li>
+                      <strong>📦 Array Methods:</strong>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Method</th>
+                                  <th>Description</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><code>forEach()</code></td>
+                                  <td>Executes a provided function once for each array element.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>map()</code></td>
+                                  <td>Creates a new array by applying a function to each element.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>filter()</code></td>
+                                  <td>Creates a new array with elements that pass a test.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>some()</code></td>
+                                  <td>Checks if at least one element satisfies a condition.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>every()</code></td>
+                                  <td>Checks if all elements satisfy a condition.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>find()</code></td>
+                                  <td>Returns the first element that satisfies a condition.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>findIndex()</code></td>
+                                  <td>Returns the index of the first element that satisfies a condition.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>includes()</code></td>
+                                  <td>Checks if an array includes a specific value.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>indexOf()</code></td>
+                                  <td>Returns the first index of a specified value.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>lastIndexOf()</code></td>
+                                  <td>Returns the last index of a specified value.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>concat()</code></td>
+                                  <td>Merges two or more arrays into one.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>slice()</code></td>
+                                  <td>Returns a shallow copy of a portion of an array.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>splice()</code></td>
+                                  <td>Adds or removes elements from an array at a specific index.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>sort()</code></td>
+                                  <td>Sorts an array in place.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>reverse()</code></td>
+                                  <td>Reverses the order of elements in an array.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>join()</code></td>
+                                  <td>Combines all array elements into a string.</td>
+                              </tr>
+                              <tr>
+                                  <td><code>flat()</code></td>
+                                  <td>Flattens nested arrays into a single array.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </li>
+                  <li>
+                      <strong>⚙️ Functions:</strong>
+                      Functions are essential for structuring JavaScript programs, allowing for modular, maintainable, and reusable code.
+                      They handle tasks by taking inputs, performing operations, and returning outputs.
+                      <ul>
+                          <li>
+                              <strong>Array Functions:</strong>
+                              Array methods are preferred for their readability, conciseness, 
+                              and ease of use, making code simpler and easier to maintain.
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>🔑 Objects:</strong>
+                      An object is a collection of key-value pairs. Each key (or property) is a string, 
+                      and the value can be any data type, including other objects or functions. 
+                      Objects are used to represent structured data and can contain properties, methods (functions), and even nested objects.
+                  </li>
+                  <li>
+                      <strong>🪞 <code>this</code> keyword:</strong>
+                      The <code>this</code> in JavaScript is not a built-in method, but rather a special keyword. 
+                      It is used to refer to the context in which the function or method is being executed. 
+                      The value of <code>this</code> changes based on how the function is called.
+                  </li>
+                  <li>
+                      <strong>🔂 For...in and For...of Loops:</strong>
+                      <em>for...of</em> is used primarily for arrays, and <em>for...in</em> is used primarily for objects.
+                  </li>
+                  <li>
+                      <strong>🏛️ Classes:</strong>
+                      A class is a blueprint, and an object is what you create from that blueprint.
+                  </li>
+                  <li>
+                      <strong>🎉 Constructor:</strong>
+                      A special method for assigning properties, automatically called when creating an object.
+                  </li>
+                  <li>
+                      <strong>📜 Inheritance:</strong>
+                      Allows one class (child class) to inherit properties and methods from another class (parent class). 
+                      This helps create a hierarchy of classes where the child class can access the functionality of the parent class 
+                      and add or override its own functionality.
+                  </li>
+                  <li>
+                      <strong>🧬 Prototypes:</strong>
+                      Prototypes are a mechanism that allows objects to inherit properties and methods from other objects. 
+                      Every JavaScript object has an internal property called [[Prototype]], which links to another object called its prototype.
+                  </li>
+                  <li>
+                      <strong>🔒 Closure:</strong>
+                      A closure in JavaScript is a function that "remembers" the variables from its outer scope 
+                      even after the outer function has finished executing.
+                      <ul>
+                          <strong>Why Use Closures?</strong>
+                          <li>Encapsulation: Keep variables private.</li>
+                          <li>Data Persistence: Maintain state across function calls.</li>
+                          <li>Function Factories: Create dynamic functions with different behaviors.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>🚚 Currying:</strong>
+                      Currying is a functional programming technique in JavaScript where a function with multiple arguments 
+                      is transformed into a sequence of functions, each taking a single argument.
+                  </li>
+                  <li>
+                      <strong>📞 Call, Apply, and Bind:</strong>
+                      <ul>
+                          <li><strong>Call:</strong> Takes a function from one object and allows it to be used with another object.</li>
+                          <li><strong>Apply:</strong> Works just like <code>call()</code>, but arguments are passed as an array.</li>
+                          <li><strong>Bind:</strong> Binds an object to a function and returns a new copy of that function. 
+                              The new function remembers the <code>this</code> value from the object it was bound to.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>📍 Lexical Environment:</strong>
+                      Local memory + lexical environment of the parent. 
+                      The lexical environment refers to the context in which a piece of code is evaluated and executed, 
+                      specifically determining how variables and functions are stored and accessed.
+                  </li>
+                  <li>
+                      <strong>📦 Block:</strong>
+                      Use of multiple statements in a single space where JavaScript expects only one statement.
+                      <ul>
+                          <li><strong>Block Scoped:</strong> All functions and variables declared with <code>let</code> and <code>const</code> are block-scoped.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>👥 Shadowing:</strong>
+                      Shadowing happens when a variable in a local scope (e.g., inside a function or block) has the same name as a variable in an outer scope. 
+                      The inner variable "shadows" the outer variable, taking precedence within its scope.
+                      <ul>
+                          <li><code>let</code> does not respect block scope.</li>
+                          <li>You cannot shadow a <code>let</code> with <code>var</code> (illegal shadowing).</li>
+                          <li>You can shadow a <code>var</code> with <code>let</code>.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>📞 Callback Function:</strong>
+                      A callback function in JavaScript is a function that is passed as an argument to another function 
+                      and is executed later, usually after an asynchronous operation completes or an event occurs.
+                  </li>
+                  <li>
+                      <strong>🔄 Event Loop:</strong>
+                      The event loop manages asynchronous operations in JavaScript.
+                      It ensures non-blocking execution by checking the call stack and executing tasks from different queues.
+                      <ul>
+                          <strong>Execution order:</strong>
+                          <li>Runs all synchronous code in the call stack.</li>
+                          <li>Executes all microtasks (Promises, MutationObservers).</li>
+                          <li>Processes macrotasks (setTimeout, I/O operations, etc.).</li>
+                          <li>Repeats the cycle.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>🎯 Callback Queue (Macrotask Queue):</strong>
+                      Stores low-priority asynchronous tasks, including:
+                      <ul>
+                          <li><strong>setTimeout</strong>, <strong>setInterval</strong></li>
+                          <li><strong>setImmediate</strong> (Node.js)</li>
+                          <li>I/O operations (e.g., file reading, network requests)</li>
+                          <li>UI rendering tasks</li>
+                      </ul>
+                      Macrotasks run only after all microtasks are completed.
+                  </li>
+                  <li>
+                      <strong>⚡ Microtask Queue:</strong>
+                      <ul>
+                          <li>Promises: When resolved/rejected, <code>.then()</code> or <code>.catch()</code> moves to the microtask queue.</li>
+                          <li>MutationObserver: Detects DOM changes and executes its callback as a microtask.</li>
+                          <li>Since microtasks run first, Promises and MutationObservers execute before any <code>setTimeout</code> or I/O operations.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>🎉 Promises & MutationObserver in the Microtask Queue:</strong>
+                      <ul>
+                          <li>Promises: When resolved/rejected, <code>.then()</code> or <code>.catch()</code> moves to the microtask queue.</li>
+                          <li>MutationObserver: Detects DOM changes and executes its callback as a microtask.</li>
+                          <li>Since microtasks run first, Promises and MutationObservers execute before any <code>setTimeout</code> or I/O operations.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>🚀 Memoization:</strong>
+                      Memoization is an optimization technique that stores the results of expensive function calls 
+                      and returns the cached result when the same inputs occur again.
+                      <ul>
+                          <strong>How It Works:</strong>
+                          <li>A function is wrapped inside another function that maintains a cache (usually an object or a Map).</li>
+                          <li>Before executing the function, it checks if the result is already in the cache.</li>
+                          <li>If found, it returns the cached result instead of re-executing the function.</li>
+                          <li>If not found, the function runs, stores the result in the cache, and then returns the output.</li>
+                      </ul>
+                  </li>
+              </ol>
+          </div>
+      </div>
+  
+      <!-- External JavaScript File -->
+      <script src="test.js"></script>
+  </body>
+  </html>
+  
